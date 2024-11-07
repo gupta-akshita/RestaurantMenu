@@ -3,105 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Card</title>
+  <title>The Noodle Co. Menu</title>
   <style>
     /* Resetting some default browser styles */
-    body, h1, p {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+    body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     }
 
-    /* Page Styling */
+    /* General page styling */
     body {
-      background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #333;
-      font-size: 16px;
+    background: linear-gradient(135deg, #f7d6e5, #daeefb); /* Soft pink to light blue gradient */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Center content vertically */
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
+    /* Background Styling */
+    .background {
+  background: linear-gradient(135deg, #f7d6e5, #daeefb); /* Gradient from pink to light blue */
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+
+    /* Header Styling */
+    .header {
+    text-align: center;
+    background-color: #c13c5b; /* Pink color */
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Menu Container Styling */
     .menu-container {
-      background-color: white;
-      width: 350px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
+    width: 100%;
+    max-width: 900px; /* Restricting width on large screens */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: left;
+    max-height: 100%; /* Ensure container takes full height */
+    overflow-y: auto; /* Scrollbar if content exceeds height */
+    margin-top: 30px;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #333;
+    /* Category Titles */
+    h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #077493; /* Dark blue color for categories */
+    border-bottom: 2px solid #ff80ab; /* Pink underline for categories */
+    padding-bottom: 10px;
+    text-align: center;
     }
 
+    h3 {
+    font-size: 1.6em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+    }
+
+    /* Menu Item Styling */
     .menu-item {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px 0;
-      padding: 8px;
-      border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
     }
 
     .menu-item:last-child {
-      border-bottom: none;
+    border-bottom: none;
     }
 
     .dish-name {
-      font-weight: bold;
+    font-weight: bold;
+    color: #077493; /* Dark blue color for dish names */
     }
 
     .dish-rate {
-      color: #4CAF50;
-      font-weight: bold;
+    color: #4CAF50; /* Green color for price */
+    font-weight: bold;
     }
 
-    .menu-footer {
-      font-size: 0.9em;
-      margin-top: 20px;
-      color: #777;
+    /* Footer Styling */
+    .footer {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 30px;
+    color: #777;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .menu-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .header {
+        font-size: 2em; /* Smaller header on mobile */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .menu-item {
+        font-size: 0.9em; /* Smaller text on mobile */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start;
+    }
+
+    .dish-rate {
+        margin-top: 5px;
+    }
+    }
+
+    /* Further responsive adjustments for very small screens */
+    @media (max-width: 480px) {
+    .menu-item {
+        font-size: 0.8em; /* Even smaller font size for very small screens */
+    }
     }
 
   </style>
 </head>
 <body>
 
+  <div class="background"></div> <!-- Background image (fixed) -->
+
+  <div class="header">
+    The Noodles Co.
+  </div>
+
   <div class="menu-container">
-    <h1>Restaurant Menu</h1>
-    
-    <!-- Menu Items -->
+
+    <!-- Food Menu Section -->
+    <h2>Food Menu</h2>
+
+    <!-- Soups Category -->
+    <h3>Soups</h3>
+<div class="menu-item">
+  <span class="dish-name">Manchow Soup (Veg / Chicken)</span>
+  <span class="dish-rate">₹120 / ₹160</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Sweet Corn Soup (Veg / Chicken)</span>
+  <span class="dish-rate">₹120 / ₹160</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Hot & Sour Soup (Veg / Chicken)</span>
+  <span class="dish-rate">₹120 / ₹160</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Talumien Soup (Veg / Chicken)</span>
+  <span class="dish-rate">₹120 / ₹160</span>
+</div>
+
+<h3>Thai Soups</h3>
+<div class="menu-item">
+  <span class="dish-name">Σthupko Soup (Veg / Chicken / Prawn)</span>
+  <span class="dish-rate">₹140 / ₹180 / ₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Tom Yum Soup (Veg / Chicken / Prawn)</span>
+  <span class="dish-rate">₹140 / ₹180 / ₹220</span>
+</div>
+
+<h3>Momos (6 pcs)</h3>
+<div class="menu-item">
+  <span class="dish-name">Steamed Momos (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹120 / ₹150</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Pan Fried Momos in BBQ Sauce (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹160 / ₹180</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Pan Fried Momos in Sweet Chilli Sauce (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹160 / ₹180</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Pan Fried Momos in Kung Pao Sauce (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹160 / ₹180</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Pan Fried Momos in Schezwan Sauce (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹160 / ₹180</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Pan Fried Momos in Manchurian Sauce (Veg / Non-Veg)</span>
+  <span class="dish-rate">₹150 / ₹100</span>
+</div>
+
+<h3>Starters (Veg)</h3>
+<div class="menu-item">
+  <span class="dish-name">Honey Chilli Potato</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Crispy Chilli Potato</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Spring Rolls</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Thai Spring Rolls</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Salt & Pepper</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Crispy Vegetables in Sweet Chilli</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Crispy Tangy Button Mushrooms</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Chilli Garlic Crispy Vegetables</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Salt & Pepper</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Crispy Baby Corn</span>
+  <span class="dish-rate">₹230</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Chilli Paneer</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Manchurian (Dry)</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Gobi Manchurian</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Paneer 65</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Asian Green Veg (Chef's Special)</span>
+  <span class="dish-rate">₹250</span>
+</div>
+
+<h3>Main Course (Veg)</h3>
+<div class="menu-item">
+  <span class="dish-name">Veg Manchurian (Gravy)</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Gobi Manchurian (Gravy)</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Sichuan Vegetable</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Hot Garlic Paneer / Vegetables</span>
+  <span class="dish-rate">₹250 / ₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Kung Pao Paneer</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Chilli Paneer in Gravy</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Vegetables in Dragon Sauce</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Vegetables in Creamy Garlic Sauce</span>
+  <span class="dish-rate">₹220</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Thai Green Curry</span>
+  <span class="dish-rate">₹250</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Veg Thai Red Curry</span>
+  <span class="dish-rate">₹250</span>
+</div>
+
+<h3>Main Course (Non-Veg)</h3>
+<div class="menu-item">
+  <span class="dish-name">Chicken Manchurian (Gravy)</span>
+  <span class="dish-rate">₹320</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Sichuan Chicken / Prawns</span>
+  <span class="dish-rate">₹320 / ₹400</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Hot Garlic Chicken / Prawns</span>
+  <span class="dish-rate">₹320 / ₹400</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Kung Pao Chicken / Prawns</span>
+  <span class="dish-rate">₹320 / ₹400</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Sriracha Chilli Chicken / Prawns in Gravy</span>
+  <span class="dish-rate">₹320 / ₹400</span>
+</div>
+<div class="menu-item">
+  <span class="dish-name">Chicken in Dragon Sauce</span>
+  <span class="dish-rate">₹320</span>
+</div>
+
+    <!-- Beverages Section -->
+    <h2>Beverages</h2>
+
+    <!-- Cold Drinks Category -->
+    <h3>Cold Drinks</h3>
     <div class="menu-item">
-      <span class="dish-name">Margherita Pizza</span>
-      <span class="dish-rate">$8.99</span>
+      <span class="dish-name">Coke (500ml)</span>
+      <span class="dish-rate">₹60</span>
+    </div>
+    <div class="menu-item">
+      <span class="dish-name">Sprite (500ml)</span>
+      <span class="dish-rate">₹60</span>
     </div>
 
+    <!-- Hot Drinks Category -->
+    <h3>Hot Drinks</h3>
     <div class="menu-item">
-      <span class="dish-name">Pasta Alfredo</span>
-      <span class="dish-rate">$12.50</span>
+      <span class="dish-name">Tea</span>
+      <span class="dish-rate">₹30</span>
     </div>
-
     <div class="menu-item">
-      <span class="dish-name">Caesar Salad</span>
-      <span class="dish-rate">$6.75</span>
-    </div>
-
-    <div class="menu-item">
-      <span class="dish-name">Grilled Chicken</span>
-      <span class="dish-rate">$15.00</span>
-    </div>
-
-    <div class="menu-item">
-      <span class="dish-name">Vegetable Soup</span>
-      <span class="dish-rate">$5.50</span>
+      <span class="dish-name">Coffee</span>
+      <span class="dish-rate">₹40</span>
     </div>
 
     <!-- Footer or additional notes -->
-    <div class="menu-footer">
-      * Prices may vary based on location 
+    <div class="footer">
+      * Prices may vary based on location and availability.
     </div>
+
   </div>
 
 </body>
