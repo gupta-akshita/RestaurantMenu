@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Card</title>
+  <style>
+    /* Resetting some default browser styles */
+    body, h1, p {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Page Styling */
+    body {
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .menu-container {
+      background-color: white;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .dish-name {
+      font-weight: bold;
+    }
+
+    .dish-rate {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .menu-footer {
+      font-size: 0.9em;
+      margin-top: 20px;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="menu-container">
+    <h1>Restaurant Menu</h1>
+    
+    <!-- Menu Items -->
+    <div class="menu-item">
+      <span class="dish-name">Margherita Pizza</span>
+      <span class="dish-rate">$8.99</span>
+    </div>
+
+    <div class="menu-item">
+      <span class="dish-name">Pasta Alfredo</span>
+      <span class="dish-rate">$12.50</span>
+    </div>
+
+    <div class="menu-item">
+      <span class="dish-name">Caesar Salad</span>
+      <span class="dish-rate">$6.75</span>
+    </div>
+
+    <div class="menu-item">
+      <span class="dish-name">Grilled Chicken</span>
+      <span class="dish-rate">$15.00</span>
+    </div>
+
+    <div class="menu-item">
+      <span class="dish-name">Vegetable Soup</span>
+      <span class="dish-rate">$5.50</span>
+    </div>
+
+    <!-- Footer or additional notes -->
+    <div class="menu-footer">
+      * Prices may vary based on location
+    </div>
+  </div>
+
+</body>
+</html>
